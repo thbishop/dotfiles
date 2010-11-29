@@ -15,3 +15,4 @@ set number
 
 " NERDTree conf
 map ,n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
