@@ -21,3 +21,6 @@ set number
 " NERDTree conf
 map ,n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" json support
+autocmd BufNewFile,BufRead *.json set ft=javascript
