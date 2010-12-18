@@ -43,6 +43,7 @@ alias s="open"
 alias x="exit"
 alias flushdns="dscacheutil -flushcache"
 alias pdev="cd ~/data/personal/dev; rvm system"
+alias lg_logs="find . -type f -size +50M -name *.log -print | xargs du -hs | sort -r"
 
 
 ######################
