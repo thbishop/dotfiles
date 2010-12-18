@@ -1,7 +1,4 @@
 #
-# Your previous .profile  (if any) is saved as .profile.mpsaved
-# Setting the path for MacPorts.
-
 #######################
 # load other scripts
 #######################
@@ -22,7 +19,7 @@ PS1='\n\u in \w ( \t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
 export PATH=~/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 set -o vi
-export EDITOR=mvim
+export EDITOR=vim
 
 #################
 # new tab
@@ -46,6 +43,23 @@ alias s="open"
 alias x="exit"
 alias flushdns="dscacheutil -flushcache"
 alias pdev="cd ~/data/personal/dev; rvm system"
+
+
+######################
+# toggle hidden files in finder
+######################
+function toggle_hidden_files {
+  if [ `defaults read com.apple.finder AppleShowAllFiles` == 1 ]
+  then 
+    echo "Hiding hidden files."
+    defaults write com.apple.finder AppleShowAllFiles -bool false
+  else 
+    echo "Showing hidden files."
+    defaults write com.apple.finder AppleShowAllFiles -bool true
+  fi   
+
+  KillAll Finder
+}
 
 
 ######################
