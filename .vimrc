@@ -14,6 +14,10 @@ set backspace=start,indent
 filetype plugin indent on
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 
+" swp/backup file location
+set backupdir=~/.vim_backup
+set directory=~/.vim_backup
+
 " what to display
 set list
 set number
