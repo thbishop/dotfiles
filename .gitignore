@@ -37,6 +37,7 @@ perl5
 .heroku/
 .install4j
 .irb_history
+.irb-history
 .irssi/
 .lesshst
 .macports
