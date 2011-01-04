@@ -21,6 +21,7 @@ perl5
 .Xauthority
 .anyconnect
 .bash_history
+.boom
 .cheat/
 .chef
 .config
