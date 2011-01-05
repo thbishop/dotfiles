@@ -28,3 +28,7 @@ let NERDTreeShowHidden=1
 
 " json support
 autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" mappings for editing/reloading vimrc
+map ,erc :e $MYVIMRC<CR>
+map ,rrc :source $MYVIMRC<CR>
