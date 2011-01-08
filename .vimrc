@@ -32,3 +32,6 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 " mappings for editing/reloading vimrc
 map ,erc :e $MYVIMRC<CR>
 map ,rrc :source $MYVIMRC<CR>
+
+" mappings for conque term
+let g:ConqueTerm_CloseOnEnd = 0
