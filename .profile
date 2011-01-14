@@ -3,6 +3,7 @@
 # load other scripts
 #######################
 source ~/bin/git-completion.sh
+source ~/bin/boom_completion.sh
 source ~/bin/work.sh
 source ~/bin/ruby.sh
 source ~/bin/svn.sh
