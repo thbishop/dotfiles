@@ -13,11 +13,9 @@ _boom_complete() {
         ;;
       *)
         for ((i = 0; i < ${#lists}; i++)); do
-          if [[ ${list[$i]} = $my_var ]]; then
-            local items=`boom $prev | awk '{print $1}' | sed -e 's/://'`
-            COMPREPLY=( $(compgen -W "${items}" -- ${cur}))
-            return 0
-          fi
+          local items=`boom $prev | awk '{print $1}' | sed -e 's/://'`
+          COMPREPLY=( $(compgen -W "${items}" -- ${cur}))
+          return 0
         done
         ;;
     esac
