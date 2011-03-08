@@ -42,6 +42,7 @@ perl5
 .irssi/
 .lesshst
 .macports
+.NERDTreeBookmarks
 .rdebug_hist
 .resty/
 .ri/
@@ -53,6 +54,7 @@ perl5
 .smartbear/
 .sqlite_history
 .vim/.netrwhist
+.vim_backup/
 .viminfo
 .wireshark-etc/
 .wireshark/
