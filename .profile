@@ -17,7 +17,7 @@ source ~/bin/chef_env.sh
 # includes support for git branch name if in a git repo and ruby version (rvm)
 PS1='\n\u in \w ( \t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
 
-export PATH=~/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:/usr/local/bin:$PATH
 
 set -o vi
 export EDITOR=vim
