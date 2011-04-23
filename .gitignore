@@ -56,6 +56,7 @@ perl5
 .vim/.netrwhist
 .vim_backup/
 .viminfo
+.vmc_*
 .wireshark-etc/
 .wireshark/
 *.swp
