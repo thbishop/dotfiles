@@ -53,6 +53,7 @@ perl5
 .subversion
 .smartbear/
 .sqlite_history
+.vagrant
 .vim/.netrwhist
 .vim_backup/
 .viminfo
