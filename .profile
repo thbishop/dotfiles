@@ -5,6 +5,7 @@
 source ~/bin/git-completion.sh
 source ~/bin/git.sh
 source ~/bin/boom_completion.sh
+source ~/bin/ssh_completion.sh
 source ~/bin/work.sh
 source ~/bin/ruby.sh
 source ~/bin/svn.sh
