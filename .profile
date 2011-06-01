@@ -3,6 +3,7 @@
 # load other scripts
 #######################
 source ~/bin/git-completion.sh
+source ~/bin/git.sh
 source ~/bin/boom_completion.sh
 source ~/bin/work.sh
 source ~/bin/ruby.sh
@@ -15,6 +16,7 @@ source ~/bin/chef_env.sh
 # shell
 ##################
 # includes support for git branch name if in a git repo and ruby version (rvm)
+GIT_PS1_SHOWDIRTYSTATE=1
 PS1='\n\u in \w ( \t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
 
 export PATH=~/bin:/usr/local/bin:$PATH

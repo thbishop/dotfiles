@@ -43,6 +43,7 @@ perl5
 .lesshst
 .macports
 .NERDTreeBookmarks
+.p4tickets
 .rdebug_hist
 .resty/
 .ri/
