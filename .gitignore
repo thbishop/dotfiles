@@ -22,6 +22,7 @@ perl5
 .anyconnect
 .bash_history
 .boom
+.cabal
 .cheat/
 .chef
 .config
@@ -33,6 +34,7 @@ perl5
 .fontconfig/
 .fonts
 .gem/
+.ghc
 .gitconfig
 .hd/
 .heroku/
