@@ -75,14 +75,6 @@ PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 export PATH
 
 
-####################
-# git related
-####################
-alias gst="git status"
-alias gb="git branch"
-alias glogdiff="git log -p"
-
-
 ##
 # Your previous /Users/tbishop/.profile file was backed up as /Users/tbishop/.profile.macports-saved_2009-09-18_at_20:00:00
 ##
