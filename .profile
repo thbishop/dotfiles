@@ -55,13 +55,13 @@ alias lg_logs="find . -type f -size +50M -name *.log -print | xargs du -hs | sor
 ######################
 function toggle_hidden_files {
   if [ `defaults read com.apple.finder AppleShowAllFiles` == 1 ]
-  then 
+  then
     echo "Hiding hidden files."
     defaults write com.apple.finder AppleShowAllFiles -bool false
   else 
     echo "Showing hidden files."
     defaults write com.apple.finder AppleShowAllFiles -bool true
-  fi   
+  fi
 
   KillAll Finder
 }
