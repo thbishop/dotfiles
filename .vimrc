@@ -35,3 +35,6 @@ map ,rrc :source $MYVIMRC<CR>
 
 " mappings for conque term
 let g:ConqueTerm_CloseOnEnd = 0
+
+" minimize macvim toolbar"
+set guioptions-=T
