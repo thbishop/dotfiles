@@ -1,6 +1,8 @@
 " color 
 let &t_Co=256
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme solarized
+set background=light
 syntax enable
 
 " whitespace/indent
