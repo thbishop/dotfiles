@@ -1,9 +1,9 @@
 " color 
-let &t_Co=256
-" colorscheme jellybeans
-colorscheme solarized
-set background=light
+set t_Co=256
+let g:solarized_termcolors=256
 syntax enable
+set background=dark
+colorscheme solarized
 
 " whitespace/indent
 set autoindent
