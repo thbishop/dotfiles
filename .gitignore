@@ -9,6 +9,7 @@ Music
 Pictures
 Public
 Sites
+VirtualBox\ VMs
 bin/ec2/
 bin/mate
 bin/work.sh
@@ -17,6 +18,8 @@ doc
 perl5
 .CFUserTextEncoding
 .DS_Store
+.IABootFiles
+.NERDTreeBookmarks
 .Trash/
 .Xauthority
 .anyconnect
@@ -44,7 +47,6 @@ perl5
 .irssi/
 .lesshst
 .macports
-.NERDTreeBookmarks
 .p4tickets
 .rdebug_hist
 .resty/
