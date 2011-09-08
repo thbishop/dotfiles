@@ -48,6 +48,7 @@ alias x="exit"
 alias flushdns="dscacheutil -flushcache"
 alias pdev="cd ~/data/personal/dev"
 alias lg_logs="find . -type f -size +50M -name *.log -print | xargs du -hs | sort -r"
+alias f="fission"
 
 
 ######################
