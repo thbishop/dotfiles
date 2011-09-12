@@ -114,14 +114,16 @@ function svn_create_tag() {
 # pass the branch name as the only parameter
 # svn_create_tag tbishop_010101_bug_fixes
 function svn_create_branch() {
+  FORMATTED_DATE=`date '+%m%d%y'`
+  BRANCH_NAME="`whoami`_${FORMATTED_DATE}_$1"
   REPO_ROOT=`svn info | grep -i "repository root" | awk '{ print $3 }'`
 
-  echo -n "Are you sure you want to create branch $1? [ YES/NO] "
+  echo -n "Are you sure you want to create branch '$BRANCH_NAME'? [ YES/NO] "
   read answer
 
   if [ "$answer" == "YES" ]; then
     echo "YES BOSS!"
-    svn cp $REPO_ROOT/trunk $REPO_ROOT/branches/$1 -m "creating branch $1"
+    svn cp $REPO_ROOT/trunk $REPO_ROOT/branches/$BRANCH_NAME -m "creating branch $BRANCH_NAME"
   else
     echo "okay, not touching it"
   fi
