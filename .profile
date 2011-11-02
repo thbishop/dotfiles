@@ -18,7 +18,7 @@ source ~/bin/chef_env.sh
 ##################
 # includes support for git branch name if in a git repo and ruby version (rvm)
 GIT_PS1_SHOWDIRTYSTATE=1
-PS1='\n\u in \w ( \t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
+PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
 
 export PATH=~/bin:/usr/local/bin:$PATH
 
