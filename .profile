@@ -68,31 +68,6 @@ function toggle_hidden_files {
 }
 
 
-######################
-# Setting PATH for MacPython 2.5
-# The orginal version is saved in .profile.pysave
-######################
-PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-export PATH
-
-
-##
-# Your previous /Users/tbishop/.profile file was backed up as /Users/tbishop/.profile.macports-saved_2009-09-18_at_20:00:00
-##
-
-# MacPorts Installer addition on 2009-09-18_at_20:00:00: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-# haskell/cabal
-export PATH=~/.cabal/bin:$PATH
-
-###################################
-# perl
-###################################
-source ~/perl5/perlbrew/etc/bashrc
-
-
 ###################################
 # ec2
 ###################################
