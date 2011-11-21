@@ -15,11 +15,13 @@ rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /Users/tbish
 
 # VMs
 mkdir -p /Volumes/VOLUME_1/laptop_backups/`hostname`/vm
-rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /vm/tbishop_vm.vmwarevm /Volumes/VOLUME_1/laptop_backups/`hostname`/vm/
+rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /vm/intu_win.vmwarevm /Volumes/VOLUME_1/laptop_backups/`hostname`/vm/
 
 rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /vm/centos_5u6_template.vmwarevm /Volumes/VOLUME_1/laptop_backups/`hostname`/vm/
 
 rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /vm/lucid_64_template.vmwarevm /Volumes/VOLUME_1/laptop_backups/`hostname`/vm/
+
+rsync -ax --delete --progress --delete-excluded --exclude=.DS_Store /vm/bl-rhel6u0-1.0.x86_64.t6.tar.gz /Volumes/VOLUME_1/laptop_backups/`hostname`/vm/
 
 # 1Password
 mkdir -p /Volumes/VOLUME_1/laptop_backups/`hostname`/1password_backup
