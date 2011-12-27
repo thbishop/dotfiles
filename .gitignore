@@ -6,6 +6,7 @@ Dropbox
 Library
 Movies
 Music
+Photo\ Booth\ Library/
 Pictures
 Public
 Sites
@@ -13,6 +14,7 @@ VirtualBox\ VMs
 bin/ec2/
 bin/mate
 bin/work.sh
+chef-repo
 data
 doc
 perl5
@@ -47,6 +49,7 @@ perl5
 .irssi/
 .lesshst
 .macports
+.npm/
 .p4tickets
 .rdebug_hist
 .resty/
