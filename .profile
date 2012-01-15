@@ -26,6 +26,12 @@ set -o vi
 export EDITOR=vim
 
 #################
+# history
+#################
+HISTSIZE=1500
+HISTFILESIZE=1500
+
+#################
 # new tab
 #################
 function nt {
