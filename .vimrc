@@ -4,6 +4,7 @@ let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
+set cursorline "highight current line
 
 " whitespace/indent
 set autoindent
@@ -15,6 +16,12 @@ set expandtab
 set backspace=start,indent
 filetype plugin indent on
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+
+" font
+set gfn=Menlo:h13
+
+" history
+set history=500
 
 " swp/backup file location
 set backupdir=~/.vim_backup
@@ -40,6 +47,18 @@ let g:ConqueTerm_CloseOnEnd = 0
 
 " minimize macvim toolbar"
 set guioptions-=T
+if has("gui_running")
+  " Maximize macvim window.
+  set lines=999 columns=999
+" else
+" " This is console Vim.
+"   if exists("+lines")
+"     set lines=50
+"   endif
+"   if exists("+columns")
+"     set columns=100
+"   endif
+endif
 
 " set colorcolumn=80
 if exists('+colorcolumn')
