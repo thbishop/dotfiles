@@ -1,10 +1,12 @@
+" pathogen
+call pathogen#infect()
+
 " color 
-set t_Co=256
-let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
 set cursorline "highight current line
+call togglebg#map("<F5>")
 
 " whitespace/indent
 set autoindent
