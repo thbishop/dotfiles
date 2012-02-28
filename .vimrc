@@ -1,23 +1,24 @@
-" pathogen
-call pathogen#infect()
-
-" color 
+" color
 syntax enable
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-set cursorline "highight current line
-call togglebg#map("<F5>")
+set cursorline " highlight current line
 
 " whitespace/indent
 set autoindent
 set tabstop=2
 set smarttab
 set shiftwidth=2
-set autoindent
 set expandtab
 set backspace=start,indent
-filetype plugin indent on
+
+" files
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" clip
+set clipboard=unnamed
 
 " font
 set gfn=Menlo:h13
@@ -29,7 +30,7 @@ set history=500
 set backupdir=~/.vim_backup
 set directory=~/.vim_backup
 
-" what to display
+" display
 set list
 set number
 
@@ -37,31 +38,12 @@ set number
 map ,n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
-" json support
-autocmd BufNewFile,BufRead *.json set ft=javascript
-
-" mappings for editing/reloading vimrc
-map ,erc :e $MYVIMRC<CR>
-map ,rrc :source $MYVIMRC<CR>
-
-" minimize macvim toolbar"
+" macvim
 set guioptions-=T
 if has("gui_running")
-  " Maximize macvim window.
-  set lines=999 columns=999
-" else
-" " This is console Vim.
-"   if exists("+lines")
-"     set lines=50
-"   endif
-"   if exists("+columns")
-"     set columns=100
-"   endif
+  set lines=999 columns=999 " maximize macvim window
 endif
 
-" set colorcolumn=80
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+if has("gui_running")
+  set lines=999 columns=999
 endif
