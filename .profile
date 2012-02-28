@@ -24,6 +24,7 @@ export PATH=~/bin:/usr/local/bin:$PATH
 
 set -o vi
 export EDITOR=vim
+alias vim="mvim -v"
 
 #################
 # history
@@ -82,3 +83,5 @@ export PATH=$PATH:$EC2_HOME/bin
 export EC2_PRIVATE_KEY=`ls $EC2_HOME/*.pem`
 # export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+
+[[ -s "/Users/tbishop/.rvm/scripts/rvm" ]] && source "/Users/tbishop/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
