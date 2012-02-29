@@ -12,6 +12,7 @@ set smarttab
 set shiftwidth=2
 set expandtab
 set backspace=start,indent
+filetype plugin indent on
 
 " files
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
@@ -47,3 +48,10 @@ endif
 if has("gui_running")
   set lines=999 columns=999
 endif
+
+" set colorcolumn=80
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif"
