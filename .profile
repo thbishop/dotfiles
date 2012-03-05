@@ -29,8 +29,8 @@ alias vim="mvim -v"
 #################
 # history
 #################
-HISTSIZE=1500
-HISTFILESIZE=1500
+HISTSIZE=15000
+HISTFILESIZE=15000
 
 #################
 # new tab
