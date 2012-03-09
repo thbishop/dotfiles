@@ -45,10 +45,6 @@ if has("gui_running")
   set lines=999 columns=999 " maximize macvim window
 endif
 
-if has("gui_running")
-  set lines=999 columns=999
-endif
-
 " set colorcolumn=80
 if exists('+colorcolumn')
   set colorcolumn=80
