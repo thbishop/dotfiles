@@ -70,3 +70,4 @@ perl5
 .wireshark/
 *.swp
 Thumbs.db
+tmux*.log

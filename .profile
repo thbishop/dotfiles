@@ -85,3 +85,8 @@ export EC2_PRIVATE_KEY=`ls $EC2_HOME/*.pem`
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
 [[ -s "/Users/tbishop/.rvm/scripts/rvm" ]] && source "/Users/tbishop/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+######################
+# tmux
+######################
+alias tmux_env="tmux_env.sh"
