@@ -43,6 +43,7 @@ perl5
 .gitconfig
 .hd/
 .heroku/
+.io_history
 .install4j
 .irb_history
 .irb-history
