@@ -24,6 +24,7 @@ export PATH=~/bin:/usr/local/bin:$PATH
 
 set -o vi
 export EDITOR=vim
+export DEV_PATH=~/data/personal/dev
 alias vim="mvim -v"
 
 #################

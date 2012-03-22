@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SESSION_NAME="wfa"
-PROJECT_PATH="$WORK_DEV_PATH/wfa"
+SESSION_NAME="intu_logger"
+PROJECT_PATH="$WORK_DEV_PATH/intu-logger"
 
 if [ -d $PROJECT_PATH ]; then
   tmux has-session -t $SESSION_NAME
@@ -16,9 +16,7 @@ if [ -d $PROJECT_PATH ]; then
     tmux split-window -h -t $SESSION_NAME:1.2
     tmux send-keys -t $SESSION_NAME:1.3 "cd $PROJECT_PATH" C-m
     tmux new-window -n console -t $SESSION_NAME
-    tmux split-window -h -t $SESSION_NAME:2
-    tmux send-keys -t $SESSION_NAME:2.1 "cd $PROJECT_PATH; tail -f /var/log/system.log" C-m
-    tmux send-keys -t $SESSION_NAME:2.2 "cd $PROJECT_PATH; be irb" C-m
+    tmux send-keys -t $SESSION_NAME:2.1 "cd $PROJECT_PATH" C-m
     tmux select-window -t $SESSION_NAME:1
     tmux select-pane -t $SESSION_NAME:1.1
   fi
