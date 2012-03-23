@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SESSION_NAME="wfa"
-PROJECT_PATH="$WORK_DEV_PATH/wfa"
+PROJECT_PATH="$WORK_DEV_PATH/$SESSION_NAME"
 
 if [ -d $PROJECT_PATH ]; then
   tmux has-session -t $SESSION_NAME
