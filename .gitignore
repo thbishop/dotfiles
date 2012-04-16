@@ -48,7 +48,10 @@ perl5
 .irb_history
 .irb-history
 .irssi/
+.jline-clojure.main.history
+.lein/
 .lesshst
+.m2/
 .macports
 .npm/
 .p4tickets
@@ -57,11 +60,12 @@ perl5
 .ri/
 .rvm/
 .rvm_history
+.scala_history
 .sdedit.conf
 .ssh
-.subversion
 .smartbear/
 .sqlite_history
+.subversion
 .vagrant
 .vim/.netrwhist
 .vim_backup/
