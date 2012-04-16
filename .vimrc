@@ -1,3 +1,7 @@
+call pathogen#infect()
+
+let mapleader = ","
+
 " color
 syntax enable
 let g:solarized_termcolors=256
@@ -36,7 +40,6 @@ set list
 set number
 
 " NERDTree conf
-map ,n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " macvim
@@ -51,3 +54,10 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif"
+
+""""""""""""""""""""""""""""""""
+" KEY MAPPINGS
+""""""""""""""""""""""""""""""""
+map ,n :NERDTreeToggle<CR>
+" insert a hash rocket
+imap <c-l> <space>=><space>
