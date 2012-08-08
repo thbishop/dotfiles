@@ -61,3 +61,8 @@ endif"
 map ,n :NERDTreeToggle<CR>
 " insert a hash rocket
 imap <c-l> <space>=><space>
+
+" manipulate windows
+map + <C-W>>
+map - <C-W><
+map ,e <C-W>=
