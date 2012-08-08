@@ -24,7 +24,9 @@ perl5
 .NERDTreeBookmarks
 .Trash/
 .Xauthority
+.aap.yml
 .anyconnect
+.aws/
 .bash_history
 .boom
 .cabal
@@ -35,13 +37,16 @@ perl5
 .cups/
 .dbshell
 .dropbox/
+.ec2/
 .erlang.cookie
 .fontconfig/
 .fonts
 .gem/
 .ghc
 .gitconfig
+.gnupg/
 .hd/
+.heirloom.yml
 .heroku/
 .io_history
 .install4j
@@ -62,6 +67,7 @@ perl5
 .rvm_history
 .scala_history
 .sdedit.conf
+.simple_deploy.yml
 .ssh
 .smartbear/
 .sqlite_history
