@@ -18,7 +18,7 @@ source ~/bin/chef_env.sh
 ##################
 # includes support for git branch name if in a git repo and ruby version (rvm)
 GIT_PS1_SHOWDIRTYSTATE=1
-PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n#'
+PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n# '
 
 export PATH=~/bin:/usr/local/bin:$PATH
 
@@ -57,6 +57,8 @@ alias flushdns="dscacheutil -flushcache"
 alias pdev="cd ~/data/personal/dev"
 alias lg_logs="find . -type f -size +50M -name *.log -print | xargs du -hs | sort -r"
 alias f="fission"
+alias sshno="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias hgrep="history | grep"
 
 
 ######################
@@ -79,11 +81,12 @@ function toggle_hidden_files {
 ###################################
 # ec2
 ###################################
-export EC2_HOME=~/bin/ec2
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
+export AWS_CLOUDFORMATION_HOME="/usr/local/Cellar/aws-cfn-tools/1.0.9/jars"
 export PATH=$PATH:$EC2_HOME/bin
-export EC2_PRIVATE_KEY=`ls $EC2_HOME/*.pem`
-# export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+export EC2_PRIVATE_KEY="$(ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(ls $HOME/.ec2/cert-*.pem)"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 [[ -s "/Users/tbishop/.rvm/scripts/rvm" ]] && source "/Users/tbishop/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
