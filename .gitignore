@@ -71,6 +71,7 @@ perl5
 .ri/
 .rvm/
 .rvm_history
+.s3cfg
 .scala_history
 .sdedit.conf
 .simple_deploy.yml
