@@ -20,7 +20,7 @@ source ~/bin/chef_env.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n# '
 
-export PATH=~/bin:/usr/local/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/heroku/bin:$PATH
 
 set -o vi
 export EDITOR=vim
@@ -69,7 +69,7 @@ function toggle_hidden_files {
   then
     echo "Hiding hidden files."
     defaults write com.apple.finder AppleShowAllFiles -bool false
-  else 
+  else
     echo "Showing hidden files."
     defaults write com.apple.finder AppleShowAllFiles -bool true
   fi
