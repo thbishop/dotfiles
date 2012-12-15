@@ -32,6 +32,7 @@ alias vim="mvim -v"
 #################
 HISTSIZE=15000
 HISTFILESIZE=15000
+HISTCONTROL=ignoreboth
 
 #################
 # new tab
