@@ -42,6 +42,10 @@ set number
 " NERDTree conf
 let NERDTreeShowHidden=1
 
+" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+
 " macvim
 set guioptions-=T
 if has("gui_running")
@@ -59,6 +63,7 @@ endif"
 " KEY MAPPINGS
 """"""""""""""""""""""""""""""""
 map ,n :NERDTreeToggle<CR>
+map ,s :SyntasticCheck<CR>
 " insert a hash rocket
 imap <c-l> <space>=><space>
 
