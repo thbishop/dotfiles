@@ -28,8 +28,10 @@ perl5
 .Xauthority
 .aap.yml
 .anyconnect
+.asgard/
 .aws/
 .bash_history
+.berkshelf/
 .boom
 .cabal
 .cheat/
@@ -61,7 +63,10 @@ perl5
 .lesshst
 .m2/
 .macports
+.mysql_history
+.neocon/
 .netrc
+.node-gyp/
 .npm/
 .p4tickets
 .passwd-s3fs
@@ -69,6 +74,7 @@ perl5
 .rdebug_hist
 .resty/
 .ri/
+.rnd
 .rvm/
 .rvm_history
 .s3cfg
@@ -80,6 +86,7 @@ perl5
 .sqlite_history
 .subversion
 .vagrant
+.vagrant.d/
 .vim/.netrwhist
 .vim_backup/
 .viminfo
