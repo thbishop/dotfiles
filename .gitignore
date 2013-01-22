@@ -85,6 +85,7 @@ perl5
 .smartbear/
 .sqlite_history
 .subversion
+bin/tmux_envs/
 .vagrant
 .vagrant.d/
 .vim/.netrwhist
