@@ -21,6 +21,7 @@ filetype plugin indent on
 " files
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead Berksfile set ft=ruby
 
 " clip
 set clipboard=unnamed
