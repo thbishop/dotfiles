@@ -20,6 +20,7 @@ chef-repo
 data
 doc
 perl5
+tmp
 .CFUserTextEncoding
 .DS_Store
 .IABootFiles
@@ -49,6 +50,7 @@ perl5
 .gem/
 .ghc
 .gitconfig
+.gitk
 .gnupg/
 .hd/
 .heirloom.yml
