@@ -47,12 +47,6 @@ let NERDTreeShowHidden=1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 
-" macvim
-set guioptions-=T
-if has("gui_running")
-  set lines=999 columns=999 " maximize macvim window
-endif
-
 " set colorcolumn=80
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -68,8 +62,7 @@ let GitGutterEnable=1
 """"""""""""""""""""""""""""""""
 map ,n :NERDTreeToggle<CR>
 map ,s :SyntasticCheck<CR>
-" insert a hash rocket
-imap <c-l> <space>=><space>
+map ,t :Tabularize /
 
 " manipulate windows
 map + <C-W>>
