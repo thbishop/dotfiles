@@ -11,6 +11,7 @@ source ~/bin/ruby.sh
 source ~/bin/svn.sh
 source ~/bin/mysql.sh
 source ~/bin/chef_env.sh
+source ~/bin/tmux.sh
 
 
 ##################
@@ -91,7 +92,4 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 
 [[ -s "/Users/tbishop/.rvm/scripts/rvm" ]] && source "/Users/tbishop/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-######################
-# tmux
-######################
-alias tmux_env="tmux_env.sh"
+
