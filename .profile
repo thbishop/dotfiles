@@ -2,6 +2,7 @@
 #######################
 # load other scripts
 #######################
+source ~/bin/aws.sh
 source ~/bin/git-completion.sh
 source ~/bin/git.sh
 source ~/bin/boom_completion.sh
@@ -21,7 +22,7 @@ source ~/bin/tmux.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n# '
 
-export PATH=~/bin:/usr/local/bin:/usr/local/heroku/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/heroku/bin:/Applications/Vagrant/bin/:$PATH
 
 set -o vi
 export EDITOR=vim
