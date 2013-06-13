@@ -63,6 +63,7 @@ let GitGutterEnable=1
 map ,n :NERDTreeToggle<CR>
 map ,s :SyntasticCheck<CR>
 map ,t :Tabularize /
+map ,jl :! jsonlint %<CR>
 
 " manipulate windows
 map + <C-W>>
