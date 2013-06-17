@@ -20,6 +20,7 @@ chef-repo
 data
 doc
 perl5
+personal_chef_repo
 tmp
 .CFUserTextEncoding
 .DS_Store
@@ -73,6 +74,7 @@ tmp
 .p4tickets
 .passwd-s3fs
 .psql_history
+.rbenv
 .rdebug_hist
 .resty/
 .ri/
