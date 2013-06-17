@@ -20,7 +20,7 @@ source ~/bin/tmux.sh
 ##################
 # includes support for git branch name if in a git repo and ruby version (rvm)
 GIT_PS1_SHOWDIRTYSTATE=1
-PS1='\n\u in \w (\t || $(~/.rvm/bin/rvm-prompt v p g)$(__git_ps1 " || %s"))\n# '
+PS1='\n\u in \w (\t || $(rbenv version-name)$(__git_ps1 " || %s"))\n# '
 
 export PATH=~/bin:/usr/local/bin:/usr/local/heroku/bin:/Applications/Vagrant/bin/:$PATH
 
@@ -91,6 +91,7 @@ export EC2_PRIVATE_KEY="$(ls $HOME/.ec2/pk-*.pem)"
 export EC2_CERT="$(ls $HOME/.ec2/cert-*.pem)"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
-[[ -s "/Users/tbishop/.rvm/scripts/rvm" ]] && source "/Users/tbishop/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
+###################################
+# rbenv
+###################################
+eval "$(rbenv init -)"
