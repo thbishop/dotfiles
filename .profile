@@ -27,7 +27,6 @@ export PATH=~/bin:/usr/local/bin:/usr/local/heroku/bin:/Applications/Vagrant/bin
 set -o vi
 export EDITOR=vim
 export DEV_PATH=~/data/personal/dev
-alias vim="mvim -v"
 
 #################
 # history
