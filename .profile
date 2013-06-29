@@ -11,6 +11,7 @@ source ~/bin/work.sh
 source ~/bin/ruby.sh
 source ~/bin/svn.sh
 source ~/bin/mysql.sh
+source ~/bin/npm.sh
 source ~/bin/chef_env.sh
 source ~/bin/tmux.sh
 
