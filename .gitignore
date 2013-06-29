@@ -53,6 +53,7 @@ tmp
 .gitconfig
 .gitk
 .gnupg/
+.guard_history
 .hd/
 .heirloom.yml
 .heroku/
