@@ -2,10 +2,8 @@
 #######################
 # load other scripts
 #######################
-source ~/bin/aws.sh
 source ~/bin/git-completion.sh
 source ~/bin/git.sh
-source ~/bin/boom_completion.sh
 source ~/bin/ssh_completion.sh
 source ~/bin/work.sh
 source ~/bin/ruby.sh
@@ -13,7 +11,6 @@ source ~/bin/serve.sh
 source ~/bin/svn.sh
 source ~/bin/mysql.sh
 source ~/bin/npm.sh
-source ~/bin/chef_env.sh
 source ~/bin/tmux.sh
 
 
