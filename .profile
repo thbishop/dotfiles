@@ -4,10 +4,13 @@
 #######################
 source ~/bin/git-completion.sh
 source ~/bin/git.sh
+source ~/bin/go.sh
+source ~/bin/docker.sh
 source ~/bin/ssh_completion.sh
 source ~/bin/work.sh
 source ~/bin/ruby.sh
 source ~/bin/serve.sh
+source ~/bin/shell.sh
 source ~/bin/svn.sh
 source ~/bin/mysql.sh
 source ~/bin/npm.sh
@@ -56,3 +59,4 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 # rbenv
 ###################################
 eval "$(rbenv init -)"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

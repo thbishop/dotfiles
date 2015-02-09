@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias g=git
 alias git=hub
 alias gb="git branch"
 alias gba="git branch -a"
