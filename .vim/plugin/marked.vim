@@ -1,7 +1,7 @@
 " marked.vim
 " Author:  Joshua Priddle <jpriddle@me.com>
 " URL:     https://github.com/itspriddle/vim-marked
-" Version: 0.1.0
+" Version: 0.5.0
 " License: Same as Vim itself (see :help license)
 
 if &cp || exists("g:marked_loaded") && g:marked_loaded
@@ -11,28 +11,49 @@ let g:marked_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-function s:OpenMarked()
-  silent exe "!open -a Marked.app '%:p'"
+let g:marked_app = get(g:, "marked_app", "Marked 2")
+
+let s:open_documents = []
+
+function s:OpenMarked(background)
+  let l:filename = expand("%:p")
+
+  if index(s:open_documents, l:filename) < 0
+    call add(s:open_documents, l:filename)
+  endif
+
+  silent exe "!open -a '".g:marked_app."' ".(a:background ? '-g' : '')." '".l:filename."'"
   redraw!
 endfunction
 
-function s:QuitMarked()
-  let pid = system('ps ax | grep "[M]arked" | awk "{print \$1}"')
-  if ! empty(pid)
-    silent exe "!kill -HUP ".pid
-    redraw!
-  endif
+function s:QuitMarked(path)
+  let cmd  = " -e 'try'"
+  let cmd .= " -e 'if application \"".g:marked_app."\" is running then'"
+  let cmd .= " -e 'tell application \"".g:marked_app."\"'"
+  let cmd .= " -e 'close (first document whose path is equal to \"".a:path."\")'"
+  let cmd .= " -e 'if count of documents is equal to 0 then'"
+  let cmd .= " -e 'quit'"
+  let cmd .= " -e 'end if'"
+  let cmd .= " -e 'end tell'"
+  let cmd .= " -e 'end if'"
+  let cmd .= " -e 'end try'"
+
+  silent exe "!osascript ".cmd
+  redraw!
 endfunction
 
-command! MarkedOpen :call s:OpenMarked()
-command! MarkedQuit :call s:QuitMarked()
+function s:QuitAll()
+  for document in s:open_documents
+    call s:QuitMarked(document)
+  endfor
+endfunction
 
-if has('autocmd')
-  augroup marked_autoclose
-    autocmd!
-    autocmd VimLeave * :call <SID>QuitMarked()
-  augroup END
-endif
+augroup marked_commands
+  autocmd!
+  autocmd FileType markdown,mkd,ghmarkdown command! -buffer -bang MarkedOpen :call s:OpenMarked(<bang>0)
+  autocmd FileType markdown,mkd,ghmarkdown command! -buffer MarkedQuit :call s:QuitMarked(expand('%:p'))
+  autocmd VimLeavePre * call s:QuitAll()
+augroup END
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
