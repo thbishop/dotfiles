@@ -77,4 +77,4 @@ iab ifnil if err != nil {<CR><tab>return err<CR>}<CR>
 " auto gofmt Go programs using shell's gofmt tool
 " sets autoread to reload files silently
 set autoread
-au BufWritePost *.go :silent execute "!goimports -w %" | redraw!
+au BufWritePost *.go :silent execute "!gofmt -w %" | redraw!

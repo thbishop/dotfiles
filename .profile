@@ -60,3 +60,4 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 ###################################
 eval "$(rbenv init -)"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+eval "$(jenv init -)"

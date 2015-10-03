@@ -2,7 +2,6 @@
 
 alias g=git
 alias git=hub
-alias gb="git branch"
 alias gba="git branch -a"
 alias gst="git status"
 alias gd="git diff"
