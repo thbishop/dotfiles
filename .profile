@@ -7,7 +7,6 @@ source ~/bin/git.sh
 source ~/bin/go.sh
 source ~/bin/docker.sh
 source ~/bin/ssh_completion.sh
-source ~/bin/work.sh
 source ~/bin/ruby.sh
 source ~/bin/serve.sh
 source ~/bin/shell.sh
@@ -52,12 +51,10 @@ alias f="fission"
 alias sshno="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias hgrep="history | grep"
 
-
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
 ###################################
 # rbenv
 ###################################
 eval "$(rbenv init -)"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-eval "$(jenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
