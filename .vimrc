@@ -1,48 +1,65 @@
-call pathogen#infect()
+execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'buoto/gotests-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
+call plug#end()
 
 syntax on
-filetype plugin indent on
 
-let mapleader = ","
+set termguicolors
+
+" indent
+filetype plugin indent on
+set autoindent
+set shiftwidth=2
+set smartindent
+set smarttab
+set softtabstop=4
+set tabstop=2
+set expandtab
+
+" show useful positions
+set cursorline
+set number
+set ruler
 
 set clipboard=unnamed
 
-set autoindent
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set expandtab
-set backspace=start,indent
-set ts=4 sts=4 sw=4 expandtab
+" manage histories
+set history=1000
+set undolevels=1000
 
-" files
-autocmd FileType ruby,eruby,yaml,javascript set ai sw=2 sts=2 et
-autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead Berksfile set ft=ruby
-autocmd BufRead,BufNewFile *.md setlocal textwidth=79
-autocmd BufRead,BufNewFile *.md setlocal spell
+let mapleader = ","
 
-set gfn=Menlo:h13
+"reload vim config
+map <leader>s :source ~/.vimrc<CR>
 
-set history=500
+" remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
-set backupdir=~/.vim_backup
-set directory=~/.vim_backup
+" highlight our search
+set hlsearch
+map <leader>h :set hlsearch!<cr>
 
-set number
-
+" nerdtree
 let NERDTreeShowHidden=1
+nmap <leader>n :NERDTreeToggle<CR>
+map ,n :NERDTreeToggle<CR>
 
+" git gutter
+let g:gitgutter_sign_column_always=1
+
+" make sure we stay in our lane
 if exists('+colorcolumn')
         set colorcolumn=80
 else
         au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-""""""""""""""""""""""""""""""""
-" KEY MAPPINGS
-""""""""""""""""""""""""""""""""
-map ,n :NERDTreeToggle<CR>
+" jsonlint
 map ,jl :! jsonlint %<CR>
 
 " manipulate windows
@@ -50,26 +67,92 @@ map + <C-W>>
 map - <C-W><
 map ,e <C-W>=
 
-" go
+" swap
+set directory^=$HOME/.vim/tmp//
+
+" auto close quickfix TODO
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+
+" golang
 iab ifnil if err != nil {<CR><tab>return err<CR>}<CR>
-
-" auto gofmt Go programs using shell's gofmt tool
-" sets autoread to reload files silently
-set autoread
-
+set autowrite
 let g:go_fmt_command = "goimports"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+autocmd FileType go nmap <Leader>ct <Plug>(go-coverage-toggle)
 
-" color
-let g:solarized_termcolors=256
-set background=light
-colorscheme solarized
-set cursorline " highlight current line
+" groovy
+autocmd BufNewFile,BufRead Jenkinsfile set ft=groovy
 
-au BufRead,BufNewFile *.md setlocal textwidth=80 filetype=markdown shiftwidth=2
-
+" extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+%#\@<!$/
 autocmd InsertLeave * redraw!
 
+" spelling
 set spell spelllang=en_us
 autocmd BufRead,BufNewFile *.md setlocal spell
+
+" theme
+set termguicolors
+colorscheme gruvbox
+
+let g:scheme_bg = "dark"
+function! ToggleBG()
+  if g:scheme_bg == "dark"
+    set background=light
+    let g:scheme_bg = "light"
+  else
+    set background=dark
+    let g:scheme_bg = "dark"
+  endif
+endfunction
+
+map <leader>tb :call ToggleBG()<CR>
+
+" coc.vim
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
