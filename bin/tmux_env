@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_PATH=$(pwd)
-SESSION_NAME=$(basename $PROJECT_PATH)
+SESSION_NAME="$(basename $PROJECT_PATH)-$(basename "$(dirname $PROJECT_PATH)")"
 
 tmux has-session -t $SESSION_NAME
 
@@ -9,6 +9,7 @@ if [ $? != 0 ];
 then
   tmux new-session -s $SESSION_NAME -n editor -d
   tmux send-keys -t $SESSION_NAME "cd $PROJECT_PATH" C-m
+  sleep .5
   tmux send-keys -t $SESSION_NAME 'vim' C-m
   tmux split-window -v -p 20 -t $SESSION_NAME
   tmux send-keys -t $SESSION_NAME:1.2 "cd $PROJECT_PATH" C-m
