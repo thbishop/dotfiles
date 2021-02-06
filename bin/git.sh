@@ -99,7 +99,3 @@ function grel() {
 
   git release create --message "${release_title}" --message "${release_body}" --edit $rel_name
 }
-
-
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
