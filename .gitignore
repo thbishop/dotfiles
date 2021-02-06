@@ -138,3 +138,4 @@ tmux*.log
 .nvm
 .vscode
 dev
+.backup/
