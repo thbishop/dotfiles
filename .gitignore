@@ -133,3 +133,8 @@ bin/tmux_envs/
 *.swp
 Thumbs.db
 tmux*.log
+.docker
+.jenv
+.nvm
+.vscode
+dev
