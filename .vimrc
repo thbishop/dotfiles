@@ -7,6 +7,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
+" theme
+set termguicolors
+
+colorscheme gruvbox
+
 syntax on
 
 set termguicolors
@@ -93,10 +98,7 @@ autocmd InsertLeave * redraw!
 " spelling
 set spell spelllang=en_us
 autocmd BufRead,BufNewFile *.md setlocal spell
-
-" theme
-set termguicolors
-colorscheme gruvbox
+hi SpellBad cterm=reverse ctermfg=red
 
 let g:scheme_bg = "dark"
 function! ToggleBG()
