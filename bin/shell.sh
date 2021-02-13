@@ -1,6 +1,6 @@
 set -o vi
 
-export PATH=~/bin/:~/dev/bin:$PATH
+export PATH=~/bin/:~/go/bin:$PATH
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export HISTSIZE=15000
