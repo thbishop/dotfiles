@@ -139,3 +139,11 @@ tmux*.log
 .vscode
 dev
 .backup/
+.android/
+.dart/
+.dartServer/
+.flutter
+.flutter_settings
+.flutter_tool_state
+.gradle/
+.pub-cache/
