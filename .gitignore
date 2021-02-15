@@ -148,3 +148,4 @@ dev
 .gradle/
 .pub-cache/
 .kotlinc_history
+.hawtjni/
