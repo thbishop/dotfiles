@@ -147,3 +147,4 @@ dev
 .flutter_tool_state
 .gradle/
 .pub-cache/
+.kotlinc_history
