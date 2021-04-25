@@ -4,7 +4,7 @@ export SAM_CLI_TELEMETRY=0
 alias aws-env="env | grep AWS | sort"
 alias aws-env-unset="for c in $(env | grep AWS_ | grep -v AWS_SDK | cut -d '=' -f 1); do unset -v "${c}"; done"
 alias aws-id="aws sts get-caller-identity --output text"
-alias aws-instances="aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==\`Name\`].Value|[0],InstanceId,State.Name,LaunchTime]' --output text | column -t | sort -k3 -s"
+alias aws-instances='aws ec2 describe-instances --query '\''Reservations[].Instances[].[Tags[?Key==`Name`].Value|[0],PrivateIpAddress,State.Name,LaunchTime,InstanceId]'\'' --output text | column -t | sort -k4 -s'
 alias aws-ssh="aws ssm start-session --target"
 
 function aws-profile-account() {
