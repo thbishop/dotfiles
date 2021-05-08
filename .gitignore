@@ -149,3 +149,4 @@ dev
 .pub-cache/
 .kotlinc_history
 .hawtjni/
+.vim/plugged/

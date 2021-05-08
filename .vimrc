@@ -1,10 +1,15 @@
 execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug 'buoto/gotests-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'APZelos/blamer.nvim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " theme
@@ -41,6 +46,10 @@ let mapleader = ","
 
 "reload vim config
 map <leader>s :source ~/.vimrc<CR>
+
+"fzf
+map <leader>f :FZF<CR>
+
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -164,3 +173,9 @@ function! s:show_documentation()
 endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
+
+" git blame config
+let g:blamer_enabled = 1
+let g:blamer_show_in_visual_modes = 1
+let g:blamer_show_in_insert_modes = 1
+let g:blamer_data_format = '%y/%m/%d'
