@@ -151,3 +151,8 @@ dev
 .hawtjni/
 .vim/plugged/
 .tmux/plugins/
+.aws-sam/
+.bundle/
+.pyenv/
+.python_history
+.wget-hsts
