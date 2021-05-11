@@ -55,14 +55,5 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-if [ -f "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR="/opt/homebrew/opt/bash-git-prompt/share"
-  GIT_PROMPT_ONLY_IN_REPO=1
-  GIT_PROMPT_THEME=Solarized
-  GIT_PROMPT_START="\n_LAST_COMMAND_INDICATOR_ | $(date "+%H:%M:%S") | \w |"
-  GIT_PROMPT_END="\n# "
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-fi
-
 [ -f /opt/homebrew/etc/profile.d/bash-preexec.sh ] && . /opt/homebrew/etc/profile.d/bash-preexec.sh
-
+eval "$(starship init bash)"
