@@ -1,0 +1,35 @@
+add_newline = true
+format = """
+$time | $directory| $git_branch$git_status$git_commit$git_state$cmd_duration
+$character
+"""
+
+[character]
+error_symbol = "[#](bold green)"
+success_symbol = "[#](bold green)"
+
+[cmd_duration]
+format = "| took [$duration]($style) "
+
+[directory]
+read_only = ""
+truncate_to_repo = false
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[git_commit]
+format = "[| \\($hash\\)]($style) [\\($tag\\)]($style) "
+only_detached = true
+tag_disabled = false
+tag_symbol = ""
+
+[git_state]
+format = '| \([$state( $progress_current/$progress_total)]($style)\)'
+
+[git_status]
+modified = '~'
+
+[time]
+disabled = false
+format = '$time'
