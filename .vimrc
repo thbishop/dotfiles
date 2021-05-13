@@ -1,4 +1,3 @@
-execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug 'buoto/gotests-vim'
 Plug 'dense-analysis/ale'
@@ -52,7 +51,7 @@ map <leader>s :source ~/.vimrc<CR>
 map <leader>f :FZF<CR>
 
 
-" remove whitespace on save
+" remove white space on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 " highlight our search
@@ -73,9 +72,6 @@ if exists('+colorcolumn')
 else
         au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
-
-" jsonlint
-map ,jl :! jsonlint %<CR>
 
 " manipulate windows
 map + <C-W>>
@@ -100,7 +96,7 @@ autocmd FileType go nmap <Leader>ct <Plug>(go-coverage-toggle)
 " groovy
 autocmd BufNewFile,BufRead Jenkinsfile set ft=groovy
 
-" extra whitespace
+" extra white space
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+%#\@<!$/
 autocmd InsertLeave * redraw!
@@ -164,8 +160,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-" https://github.com/tpope/vim-endwise/issues/22#issuecomment-652621302
-let g:endwise_no_mappings = v:true
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
