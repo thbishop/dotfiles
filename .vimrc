@@ -10,6 +10,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " theme
@@ -132,8 +133,14 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" always show signcolumns
-set signcolumn=yes
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -161,6 +168,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 let g:endwise_no_mappings = v:true
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -176,6 +190,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " git blame config
 let g:blamer_enabled = 1
+let g:blamer_prefix = "\t"
+let g:blamer_show_in_insert_modes = 0
 let g:blamer_show_in_visual_modes = 1
-let g:blamer_show_in_insert_modes = 1
-let g:blamer_data_format = '%y/%m/%d'
+let g:blamer_date_format = '%Y/%m/%d'
