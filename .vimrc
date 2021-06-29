@@ -10,6 +10,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " theme
@@ -48,7 +49,7 @@ let mapleader = ","
 map <leader>s :source ~/.vimrc<CR>
 
 "fzf
-map <leader>f :FZF<CR>
+map <C-p> :FZF<CR>
 
 
 " remove white space on save
@@ -62,9 +63,6 @@ map <leader>h :set hlsearch!<cr>
 let NERDTreeShowHidden=1
 nmap <leader>n :NERDTreeToggle<CR>
 map ,n :NERDTreeToggle<CR>
-
-" git gutter
-let g:gitgutter_sign_column_always=1
 
 " make sure we stay in our lane
 if exists('+colorcolumn')
@@ -103,6 +101,7 @@ autocmd InsertLeave * redraw!
 
 " spelling
 set spell spelllang=en_us
+set spellfile=~/.vim/spell/en.utf-8.add
 autocmd BufRead,BufNewFile *.md setlocal spell
 hi SpellBad cterm=reverse ctermfg=red
 
@@ -180,7 +179,20 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Symbol rename
 nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 " git blame config
 let g:blamer_enabled = 1
