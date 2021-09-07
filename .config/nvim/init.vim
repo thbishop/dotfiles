@@ -156,6 +156,7 @@ map <leader>n :NERDTreeToggle<CR>
 "fzf
 map <C-p> :Files<CR>
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 " let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--preview', '--info=inline']}), <bang>0)
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
