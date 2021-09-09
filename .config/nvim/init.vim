@@ -155,6 +155,7 @@ let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']
 " trouble
 lua << EOF
 require("trouble").setup {
+  auto_close = true,
   fold_open = "v", -- icon used for open folds
   fold_closed = ">", -- icon used for closed folds
   icons = false,
