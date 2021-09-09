@@ -7,6 +7,7 @@ Plug 'tpope/vim-commentary'
 Plug 'overcache/NeoSolarized'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
+Plug 'folke/trouble.nvim'
 call plug#end()
 
 syntax on
@@ -137,3 +138,22 @@ for _, server in pairs(servers) do
   }
 end
 EOF
+
+" trouble
+lua << EOF
+require("trouble").setup {
+  fold_open = "v", -- icon used for open folds
+  fold_closed = ">", -- icon used for closed folds
+  icons = false,
+  indent_lines = false, -- add an indent guide below the fold icons
+  signs = {
+    -- icons / text used for a diagnostic
+    error = "error",
+    warning = "warn",
+    hint = "hint",
+    information = "info"
+  },
+  use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+}
+EOF
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
