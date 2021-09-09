@@ -8,6 +8,7 @@ Plug 'overcache/NeoSolarized'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/trouble.nvim'
+Plug 'nvim-lua/completion-nvim'
 call plug#end()
 
 syntax on
@@ -89,11 +90,13 @@ command! -bang -nargs=? -complete=dir Files
  
 " lsp
 lua << EOF
-local nvim_lsp = require('lspconfig')
+completion = require('completion')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  completion.on_attach()
+
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -138,6 +141,16 @@ for _, server in pairs(servers) do
   }
 end
 EOF
+
+" completion
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
+let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']
 
 " trouble
 lua << EOF
