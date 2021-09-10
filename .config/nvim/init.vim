@@ -9,12 +9,18 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/trouble.nvim'
 Plug 'nvim-lua/completion-nvim'
+Plug 'vitalk/vim-simple-todo'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 call plug#end()
 
 syntax on
 
 set termguicolors
-colorscheme NeoSolarized
+let g:gruvbox_contrast_light = "medium"
+colorscheme gruvbox
 set background=light
 
 set cursorline
@@ -87,7 +93,7 @@ let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffse
 " let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
- 
+
 " lsp
 lua << EOF
 completion = require('completion')
@@ -150,7 +156,21 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
-let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+
+" treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 
 " trouble
 lua << EOF
@@ -171,3 +191,31 @@ require("trouble").setup {
 }
 EOF
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
+
+" todo
+let g:simple_todo_map_keys = 0
+let g:simple_todo_list_symbol = '*'
+nmap <leader>tdn <Plug>(simple-todo-new-list-item-start-of-line)
+nmap <leader>tds <Plug>(simple-todo-mark-switch)
+
+" go
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+let g:go_list_type = "quickfix"    " error lists are of type quickfix
+let g:go_fmt_command = "goimports" " automatically format and rewrite imports
+let g:go_def_mapping_enabled = 0   " coc.vim will do `gd`
+
+" whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * :%s/\s\+$//e
