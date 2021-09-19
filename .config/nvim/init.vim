@@ -217,5 +217,5 @@ let g:go_def_mapping_enabled = 0   " coc.vim will do `gd`
 
 " whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
