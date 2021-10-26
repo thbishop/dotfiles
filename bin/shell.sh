@@ -1,7 +1,7 @@
 set -o vi
 
 export PATH=~/bin/:~/go/bin:$PATH
-export EDITOR=vim
+export EDITOR=nvim
 export GPG_TTY=$(tty)
 export HISTSIZE=15000
 export HISTFILESIZE=15000
