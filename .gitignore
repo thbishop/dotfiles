@@ -155,3 +155,4 @@ dev
 .pyenv/
 .python_history
 .wget-hsts
+.config/gh/hosts.yml
