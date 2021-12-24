@@ -8,6 +8,8 @@ export HISTFILESIZE=15000
 export HISTCONTROL=ignoreboth
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 alias ackv="ack --ignore-dir vendor"
 alias cddltmp="cd ~/Downloads/tmp"
 alias brewup="brew update && brew outdated"
