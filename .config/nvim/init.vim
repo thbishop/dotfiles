@@ -4,22 +4,23 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 Plug 'overcache/NeoSolarized'
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'folke/trouble.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'folke/trouble.nvim'
 Plug 'vitalk/vim-simple-todo'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'rktjmp/lush.nvim'
-
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 syntax on
@@ -92,16 +93,19 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 let NERDTreeShowHidden=1
 map <leader>n :NERDTreeToggle<CR>
 
-"fzf
+" fzf
 map <C-p> :Files<CR>
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
-" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
+" completion
+set completeopt=menu,menuone,noselect
+
 " lsp
 lua << EOF
+-- completion
 local cmp = require'cmp'
 
 cmp.setup({
@@ -158,28 +162,59 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
   -- custom
-  buf_set_keymap('n', 'f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>f', '<cmd>Neoformat<CR>', opts)
+  buf_set_keymap('v', '<leader>f', '<cmd>Neoformat<CR>', opts)
   buf_set_keymap('n', 'rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>l', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
 end
 
-require'lspinstall'.setup() -- important
+local lsp_installer = require "nvim-lsp-installer"
 
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+-- Include the servers you want to have installed by default below
+local servers = {
+  "bashls",
+  "cmake",
+  "dockerls",
+  "gopls",
+  "graphql",
+  "groovyls",
+  "html",
+  "jsonls",
+  "pyright",
+  "terraformls",
+  "tsserver",
+  "vimls",
+  "vuels",
+  "yamlls",
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found then
+    if not server:is_installed() then
+      print("Installing " .. name)
+      server:install()
+    end
+  end
+end
+
+lsp_installer.on_server_ready(function(server)
+  -- Specify the default options which we'll use to setup all servers
+  local default_opts = {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
-end
-EOF
 
-" completion
-set completeopt=menu,menuone,noselect
+  -- Can be used for server specific config
+  local server_opts = { }
+
+  -- Use the server's custom settings, if they exist, otherwise default to the default options
+  local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
+  server:setup(server_options)
+end)
+EOF
 
 " treesitter
 lua <<EOF
@@ -217,7 +252,6 @@ nnoremap <leader>xx <cmd>TroubleToggle<cr>
 
 " todo
 let g:simple_todo_map_keys = 0
-let g:simple_todo_list_symbol = '*'
 nmap <leader>tdn <Plug>(simple-todo-new-list-item-start-of-line)
 nmap <leader>tds <Plug>(simple-todo-mark-switch)
 
@@ -242,3 +276,11 @@ let g:go_def_mapping_enabled = 0   " coc.vim will do `gd`
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+" format
+augroup fmt
+  autocmd!
+  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+augroup END
+let g:neoformat_try_node_exe = 1
+let g:neoformat_enabled_markdown = []
