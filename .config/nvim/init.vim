@@ -42,7 +42,7 @@ set clipboard=unnamed
 " tab
 set smarttab
 set shiftround
-set shiftwidth=4
+set shiftwidth=2
 set softtabstop=4
 set tabstop=4
 
@@ -283,4 +283,3 @@ augroup fmt
   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 let g:neoformat_try_node_exe = 1
-let g:neoformat_enabled_markdown = []
