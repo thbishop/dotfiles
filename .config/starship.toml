@@ -1,8 +1,11 @@
 add_newline = true
 format = """
-$time | $directory| $git_branch$git_status$git_commit$git_state$cmd_duration
+$time | $directory| $git_branch$git_status$git_commit$git_state$aws$cmd_duration
 $character
 """
+
+[aws]
+format = '| ($profile) '
 
 [character]
 error_symbol = "[#](bold green)"
