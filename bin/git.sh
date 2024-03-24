@@ -1,7 +1,3 @@
-export HUB_PROTOCOL=https
-
-alias git=hub
-
 alias ga="git add"
 alias gaa="git add ."
 alias gba="git branch -a"
@@ -11,8 +7,8 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gdevtags="git tag | grep '\-dev'"
 alias gds="git diff --staged"
-alias gf="git fetch"
-alias gfp="git fetch --prune"
+alias gf="git fetch --all"
+alias gfp="git fetch --prune --all"
 alias gl="git log --oneline"
 alias glc="git rev-parse HEAD | tr -d '\n' | pbcopy"
 alias glogdiff="git log -p"
