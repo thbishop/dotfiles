@@ -1,12 +1,15 @@
 set -o vi
 
 export PATH=~/bin/:~/go/bin:$PATH
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
 export GPG_TTY=$(tty)
-export HISTSIZE=1500000
-export HISTFILESIZE=1500000
+
 export HISTCONTROL=ignoreboth
-export BASH_SILENCE_DEPRECATION_WARNING=1
+export HISTFILESIZE=1500000
+export HISTIGNORE="ls:history:x:exit:clear:"
+export HISTSIZE=1500000
+shopt -s histappend
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
