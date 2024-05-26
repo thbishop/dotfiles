@@ -52,7 +52,7 @@ return {
 				},
 				marksman = {},
 				pyright = {},
-				ruby_ls = {},
+				ruby_lsp = {},
 				ruff_lsp = {},
 				sqlls = {},
 				tailwindcss = {},
