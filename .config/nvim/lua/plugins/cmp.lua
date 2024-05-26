@@ -28,9 +28,9 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					-- Select the next item
-					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<C-n>"] = cmp.mapping.select_next_item(),
 					-- Select the previous item
-					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
 
 					-- Think of <c-l> as moving to the right of your snippet expansion.
 					--  So if you have a snippet that's like:
@@ -57,7 +57,7 @@ return {
 					-- Accept the completion.
 					--  This will auto-import if your LSP supports it.
 					--  This will expand snippets if the LSP sent a snippet.
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				-- sources for autocompletion
 				sources = cmp.config.sources({
