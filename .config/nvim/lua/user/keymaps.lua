@@ -12,10 +12,10 @@ local M = {}
 xnoremap("<leader>p", [["_dP]])
 
 -- toggle tree buffer
-map("<leader>n", ":NERDTreeToggle<CR>")
+nmap("<leader>n", ":NERDTreeToggle<CR>")
 
 -- toggle search highlighting
-map("<leader>h", ":set hlsearch!<CR>")
+nmap("<leader>h", ":set hlsearch!<CR>")
 
 -- simple todo
 nmap("<leader>tdn", "<Plug>(simple-todo-new-list-item-start-of-line)")
@@ -26,7 +26,7 @@ nnoremap("<leader>xx", "<cmd>Trouble diagnostics toggle<CR>")
 
 -- telescope
 map("<C-p>", require("telescope.builtin").find_files, {})
-map("<leader>lg", require("telescope.builtin").live_grep, {})
+nmap("<leader>lg", require("telescope.builtin").live_grep, {})
 
 -- window movement
 nnoremap("<C-h>", ':call WinMove("h")<CR>')

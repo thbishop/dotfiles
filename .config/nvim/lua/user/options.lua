@@ -39,8 +39,7 @@ vim.opt.clipboard = "unnamed"
 vim.opt.autoindent = true
 
 -- set leader key
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+vim.g.mapleader = " "
 
 -- set history level
 vim.opt.history = 1000
