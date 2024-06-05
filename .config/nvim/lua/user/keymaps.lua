@@ -9,6 +9,8 @@ local functions = require("user.functions")
 
 local M = {}
 
+xnoremap("<leader>p", [["_dP]])
+
 -- toggle tree buffer
 map("<leader>n", ":NERDTreeToggle<CR>")
 
@@ -20,7 +22,7 @@ nmap("<leader>tdn", "<Plug>(simple-todo-new-list-item-start-of-line)")
 nmap("<leader>tds", "<Plug>(simple-todo-mark-switch)")
 
 -- trouble errors
-nnoremap("<leader>xx", ":TroubleToggle<CR>")
+nnoremap("<leader>xx", "<cmd>Trouble diagnostics toggle<CR>")
 
 -- telescope
 map("<C-p>", require("telescope.builtin").find_files, {})
