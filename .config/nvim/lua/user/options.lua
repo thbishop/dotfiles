@@ -20,6 +20,7 @@ vim.opt.cursorline = true
 
 -- show line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- show row/column number
 vim.opt.ruler = true
