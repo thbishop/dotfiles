@@ -12,6 +12,7 @@ export HISTSIZE=1500000
 shopt -s histappend
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 alias brewup="brew update && brew outdated"
 alias hgrep="history | grep"
