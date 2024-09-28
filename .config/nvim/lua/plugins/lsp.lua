@@ -58,7 +58,7 @@ return {
 				tailwindcss = {},
 				terraformls = {},
 				tflint = {},
-				tsserver = {},
+				ts_ls = {},
 				vimls = {},
 				yamlls = {},
 			}
