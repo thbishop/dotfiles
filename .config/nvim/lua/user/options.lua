@@ -54,6 +54,9 @@ vim.opt.hlsearch = true
 -- set 80 char column
 vim.opt.colorcolumn = "80"
 
+-- set global statusline
+vim.opt.laststatus = 3
+
 -- set completion options
 vim.completeopt = { "menu", "menuone", "noselect" }
 
