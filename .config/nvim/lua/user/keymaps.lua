@@ -115,4 +115,10 @@ nnoremap("<leader>hc", function()
 	harpoon:list():clear()
 end, { desc = "Clear harpoon items" })
 
+vim.keymap.set("n", "<leader>oc", function()
+	local file = vim.fn.shellescape(vim.fn.expand("%:p"))
+	local line = vim.fn.line(".")
+	local editor = vim.fn.getenv("OTHER_EDITOR") or "code"
+	vim.cmd(string.format("silent !%s -g %s:%s .", editor, file, line))
+end, { desc = "Open file in other editor" })
 return M
