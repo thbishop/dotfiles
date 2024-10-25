@@ -104,7 +104,7 @@ nnoremap("<leader>ho", function()
 end, { desc = "Harpoon open list" })
 
 nnoremap("<leader>ha", function()
-	harpoon:list():append()
+	harpoon:list():add()
 end, { desc = "Harpoon add" })
 
 nnoremap("<leader>hr", function()
@@ -115,6 +115,13 @@ nnoremap("<leader>hc", function()
 	harpoon:list():clear()
 end, { desc = "Harpoon clear" })
 
+nnoremap("<leader>hn", function()
+	harpoon:list():next()
+end, { desc = "Harpoon next" })
+
+nnoremap("<leader>hp", function()
+	harpoon:list():prev()
+end, { desc = "Harpoon previous" })
 vim.keymap.set("n", "<leader>oc", function()
 	local file = vim.fn.shellescape(vim.fn.expand("%:p"))
 	local line = vim.fn.line(".")
