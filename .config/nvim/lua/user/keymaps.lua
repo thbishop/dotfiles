@@ -25,8 +25,8 @@ nmap("<leader>tds", "<Plug>(simple-todo-mark-switch)")
 nnoremap("<leader>xx", "<cmd>Trouble diagnostics toggle<CR>")
 
 -- telescope
-map("<C-p>", require("telescope.builtin").find_files, {})
-nmap("<leader>lg", require("telescope.builtin").live_grep, {})
+map("<C-p>", require("telescope.builtin").find_files, { desc = "Find files" })
+nmap("<leader>lg", require("telescope.builtin").live_grep, { desc = "Live grep" })
 
 -- window movement
 nnoremap("<C-h>", ':call WinMove("h")<CR>')
@@ -101,19 +101,19 @@ local function toggle_telescope(harpoon_files)
 end
 nnoremap("<leader>ho", function()
 	toggle_telescope(harpoon:list())
-end, { desc = "Open harpoon window" })
+end, { desc = "Harpoon open list" })
 
 nnoremap("<leader>ha", function()
 	harpoon:list():append()
-end, { desc = "Add file to harpoon" })
+end, { desc = "Harpoon add" })
 
 nnoremap("<leader>hr", function()
 	harpoon:list():remove()
-end, { desc = "Remove from harpoon" })
+end, { desc = "Harpoon remove" })
 
 nnoremap("<leader>hc", function()
 	harpoon:list():clear()
-end, { desc = "Clear harpoon items" })
+end, { desc = "Harpoon clear" })
 
 vim.keymap.set("n", "<leader>oc", function()
 	local file = vim.fn.shellescape(vim.fn.expand("%:p"))
