@@ -53,7 +53,7 @@ return {
 				marksman = {},
 				pyright = {},
 				ruby_lsp = {},
-				ruff_lsp = {},
+				ruff = {},
 				sqlls = {},
 				tailwindcss = {},
 				terraformls = {},
