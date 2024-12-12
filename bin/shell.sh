@@ -1,6 +1,6 @@
 set -o vi
 
-export PATH=~/bin/:~/go/bin:$PATH
+export PATH=~/bin:~/.local/bin:~/go/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
 export GPG_TTY=$(tty)
