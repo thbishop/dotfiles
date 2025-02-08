@@ -33,6 +33,8 @@ function cl-bump-patch() {
   latest_version=$(cl-latest)
 }
 
-. $(brew --prefix asdf)/libexec/asdf.sh
+# asdf
+PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+. <(asdf completion bash)
 
 eval "$(starship init bash)"
