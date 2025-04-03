@@ -24,6 +24,12 @@ alias snipcp="pet search | pbcopy"
 alias unixnow="date +%s"
 alias x=exit
 
+function alert() {
+  local message=${1:-"It's done!"}
+  local title=${2:-"Alert"}
+  osascript -e "display notification \"$message\" with title \"$title\""
+}
+
 function cl-latest() {
   grep -m 1 '^## \[\d' CHANGELOG.md | keepachangelog-version
 }
