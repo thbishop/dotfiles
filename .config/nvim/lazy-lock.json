@@ -31,6 +31,5 @@
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "vim-gitgutter": { "branch": "main", "commit": "6620e5fbbe6a28de0bfed081f5bd2767023b7eea" },
   "vim-simple-todo": { "branch": "master", "commit": "e2eead5640244cbf4e376ad91f649e2a4f536da9" },
-  "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
