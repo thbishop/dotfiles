@@ -3,7 +3,6 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"L3MON4D3/LuaSnip",
@@ -43,14 +42,13 @@ return {
 				}),
 				-- sources for autocompletion
 				sources = cmp.config.sources({
-					-- { name = "copilot" }, -- Copilot suggestions
 					{ name = "nvim_lsp" }, -- lsp
 					{ name = "luasnip", max_item_count = 3 }, -- snippets
 					{ name = "buffer", max_item_count = 5 }, -- text within current buffer
 					{ name = "path", max_item_count = 3 }, -- file system paths
 				}),
 				experimental = {
-					ghost_text = false,
+					ghost_text = true,
 				},
 			})
 		end,

@@ -42,6 +42,14 @@ return {
 
 			-- Enable telescope fzf native, if installed
 			pcall(require("telescope").load_extension, "fzf")
+
+
+
+			-- keymaps
+			local keymap = vim.keymap
+			keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+			keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>", { desc = "Find files" })
 		end,
 	},
+
 }

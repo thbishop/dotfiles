@@ -19,4 +19,3 @@ M.inoremap = bind("i")
 M.tnoremap = bind("t")
 
 return M
-
