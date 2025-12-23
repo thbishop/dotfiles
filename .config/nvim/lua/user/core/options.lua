@@ -33,7 +33,6 @@ vim.opt.cmdheight = 1
 
 -- clipboard
 vim.opt.clipboard = "unnamed"
--- set clipboard=unnamed
 
 -- set indention
 -- filetype plugin indent on -- is this needed?

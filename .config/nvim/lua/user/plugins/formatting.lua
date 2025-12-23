@@ -19,7 +19,7 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			css = { "prettier" },
-			go = { "goimports", "gofmt" },
+			go = { "gofmt" },
 			html = { "prettier" },
 			javascript = { "prettier" },
 			javascriptreact = { "prettier" },
