@@ -24,9 +24,6 @@ nnoremap("<C-j>", ':call WinMove("j")<CR>')
 nnoremap("<C-k>", ':call WinMove("k")<CR>')
 nnoremap("<C-l>", ':call WinMove("l")<CR>')
 
--- copilot
-inoremap("<C-j>", "copilot#Accept('<CR>')", { noremap = true, silent = true, expr = true, replace_keycodes = false })
-
 vim.keymap.set("n", "<leader>oc", function()
 	local file = vim.fn.shellescape(vim.fn.expand("%:p"))
 	local line = vim.fn.line(".")
