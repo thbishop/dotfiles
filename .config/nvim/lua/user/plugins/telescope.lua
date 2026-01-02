@@ -12,7 +12,7 @@ return {
 			require("telescope").setup({
 				defaults = {
 					file_ignore_patterns = {
-						".git",
+						"%.git/",
 						"node_modules",
 						"vendor",
 						"venv",
@@ -36,6 +36,7 @@ return {
 				pickers = {
 					find_files = {
 						disable_devicons = true,
+						hidden = true,
 					},
 				},
 			})
