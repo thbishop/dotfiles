@@ -18,22 +18,6 @@ local function get_go_module(bufnr)
 	return ""
 end
 
-vim.lsp.config("gopls", {
-	settings = {
-		gopls = {
-			["local"] = "",
-		},
-	},
-	on_attach = function(client, bufnr)
-		-- Dynamically set the local module for this buffer
-		local module = get_go_module(bufnr)
-		if module and module ~= "" then
-			client.config.settings.gopls["local"] = module
-			client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-		end
-	end,
-})
-
 -- Organize imports on save for Go files using gopls code action
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
@@ -59,3 +43,19 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		end
 	end,
 })
+
+return {
+	settings = {
+		gopls = {
+			["local"] = "",
+		},
+	},
+	on_attach = function(client, bufnr)
+		-- Dynamically set the local module for this buffer
+		local module = get_go_module(bufnr)
+		if module and module ~= "" then
+			client.config.settings.gopls["local"] = module
+			client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+		end
+	end,
+}
