@@ -19,7 +19,6 @@ alias gprls="git pr list"
 alias grm="git rm"
 alias gp="git push"
 alias gst="git status"
-alias gum="git checkout master && git fetch --prune && git rebase origin/master"
 alias gundo="git reset --soft HEAD^"
 
 function gbranchrel() {
@@ -94,4 +93,24 @@ function grel() {
   release_body=${newest_section#"$newest_title"}
 
   git release create --message "${release_title}" --message "${release_body}" --edit $rel_name
+}
+
+function gum() {
+  local remote="origin"
+  if git remote | grep -q '^upstream$'; then
+    remote="upstream"
+    echo "Using upstream remote."
+  fi
+
+  local default_branch
+  default_branch=$(git symbolic-ref "refs/remotes/${remote}/HEAD" 2>/dev/null | sed "s@^refs/remotes/${remote}/@@")
+
+  if [[ -z $default_branch ]]; then
+    default_branch="master"
+    if ! git show-ref --verify --quiet "refs/remotes/${remote}/master"; then
+      default_branch="main"
+    fi
+  fi
+
+  git checkout "${default_branch}" && git fetch --prune "${remote}" && git rebase "${remote}/${default_branch}"
 }
