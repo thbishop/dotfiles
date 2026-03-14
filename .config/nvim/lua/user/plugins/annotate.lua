@@ -1,6 +1,6 @@
 return {
 	{
-		"hugooliveirad/annotate.nvim",
+		"thbishop/annotate.nvim",
 		opts = {
 			highlights = {
 				line = false,
