@@ -26,7 +26,7 @@ vim.opt.relativenumber = true
 vim.opt.ruler = true
 
 -- always show sign column
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "auto:2"
 
 -- set command line height
 vim.opt.cmdheight = 1
