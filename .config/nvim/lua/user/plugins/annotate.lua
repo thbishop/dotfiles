@@ -7,9 +7,6 @@ return {
 				line_drifted = false,
 				sign = "GitGutterChange",
 			},
-			sign = {
-				text = "*",
-			},
 		},
 		keys = {
 			{
