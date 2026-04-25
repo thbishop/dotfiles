@@ -36,3 +36,32 @@ modified = '~'
 [time]
 disabled = false
 format = '$time'
+
+[profiles]
+claude-code = "$claude_model$claude_cost$claude_context"
+
+[claude_model]
+format = "[Model: $model]($style) | "
+style = "none"
+symbol = ""
+
+[claude_cost]
+format = '[\$$cost ]($style)'
+symbol = ""
+
+[[claude_cost.display]]
+threshold = 0.0
+style = "none"
+hidden = false
+
+[claude_context]
+format = "[Ctx(u): $percentage]($style) | [In: $input_tokens]($style) | [Out: $output_tokens]($style) | [Cached Read: $curr_cache_read_tokens]($style) | [Cached Input: $curr_cache_creation_tokens]($style) | [Ctx Total: $total_tokens]($style)"
+gauge_width = 0
+gauge_full_symbol = ""
+gauge_partial_symbol = ""
+gauge_empty_symbol = ""
+
+[[claude_context.display]]
+threshold = 0.0
+style = "bright-black"
+hidden = false
