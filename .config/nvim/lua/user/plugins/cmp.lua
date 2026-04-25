@@ -5,22 +5,11 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-
-			-- Load snippets
-			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
 				window = {
 					completion = cmp.config.window.bordered({ border = "rounded" }),
 					documentation = cmp.config.window.bordered({ border = "rounded" }),
@@ -43,7 +32,6 @@ return {
 				-- sources for autocompletion
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" }, -- lsp
-					{ name = "luasnip", max_item_count = 3 }, -- snippets
 					{ name = "buffer", max_item_count = 5 }, -- text within current buffer
 					{ name = "path", max_item_count = 3 }, -- file system paths
 				}),
