@@ -1,0 +1,69 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+a"
+
+split_vertical = "prefix+|"
+
+split_horizontal = "prefix+minus"
+
+previous_workspace = "prefix+ctrl+h"
+next_workspace = "prefix+ctrl+l"
+
+# herdr's prefix+c default is new_tab, but we don't use tabs. match tmux
+new_workspace = ["prefix+c", "prefix+shift+n"]
+
+# we don't use tabs
+new_tab = ""
+
+# Overrides herdr's default of prefix+q to match tmux.
+detach = "prefix+d"
+
+# herdr's workspace-naming does not live-track cwd, so this renames the focused
+# workspace to the current directory's basename on demand.
+[[keys.command]]
+key = "prefix+alt+r"
+type = "shell"
+command = "~/.config/herdr/scripts/rename-workspace-to-cwd.sh"
+description = "rename workspace to cwd basename"
+
+# we have a custom workspace picker below
+workspace_picker = ""
+
+# Use pop up for workspace selection.
+[[keys.command]]
+key = "prefix+w"
+type = "popup"
+command = "~/.config/herdr/scripts/switch-workspace.sh"
+description = "switch workspace (fzf)"
+width = "80%"
+height = "80%"
+
+[ui]
+# Each workspace holds exactly one tab in this workflow; hide the now-redundant tab bar.
+hide_tab_bar_when_single_tab = true
+
+show_agent_labels_on_pane_borders = false
+
+# Hide sidebar
+sidebar_collapsed_mode = "hidden"
+
+# Share a single divider line between adjacent panes
+pane_gaps = false
+[advanced]
+# herdr caps scrollback in bytes, not lines (~100MB) per pane.
+scrollback_limit_bytes = 100000000
+
+[theme]
+name = "solarized-light"
+auto_switch = false
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+pane_history = true
+switch_ascii_input_source_in_prefix = false
