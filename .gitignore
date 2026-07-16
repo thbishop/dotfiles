@@ -20,6 +20,8 @@
 .codeium/
 .config/gh/hosts.yml
 .config/github-copilot/
+.config/herdr/*.log
+.config/herdr/session*
 .config/iterm2/
 .cups/
 .cursor/
