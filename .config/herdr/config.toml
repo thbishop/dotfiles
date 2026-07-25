@@ -19,6 +19,9 @@ new_tab = ""
 # Overrides herdr's default of prefix+q to match tmux.
 detach = "prefix+d"
 
+# we have a custom workspace picker below
+workspace_picker = ""
+
 # herdr's workspace-naming does not live-track cwd, so this renames the focused
 # workspace to the current directory's basename on demand.
 [[keys.command]]
@@ -26,9 +29,6 @@ key = "prefix+alt+r"
 type = "shell"
 command = "~/.config/herdr/scripts/rename-workspace-to-cwd.sh"
 description = "rename workspace to cwd basename"
-
-# we have a custom workspace picker below
-workspace_picker = ""
 
 # Use pop up for workspace selection.
 [[keys.command]]

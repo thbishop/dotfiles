@@ -22,6 +22,7 @@
 .config/gh/hosts.yml
 .config/github-copilot/
 .config/herdr/*.log
+.config/herdr/.plugins.lock
 .config/herdr/session*
 .config/iterm2/
 .cups/
