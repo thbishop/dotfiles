@@ -10,14 +10,16 @@ split_horizontal = "prefix+minus"
 previous_workspace = "prefix+ctrl+h"
 next_workspace = "prefix+ctrl+l"
 
-# herdr's prefix+c default is new_tab, but we don't use tabs. match tmux
-new_workspace = ["prefix+c", "prefix+shift+n"]
+# New workspaces are handled by the new-workspace-home command below so they
+# open in $HOME instead of following the source workspace's cwd.
+new_workspace = ""
 
 # we don't use tabs
 new_tab = ""
 
-# Overrides herdr's default of prefix+q to match tmux.
 detach = "prefix+d"
+
+close_workspace = "prefix+&"
 
 # we have a custom workspace picker below
 workspace_picker = ""
@@ -30,14 +32,17 @@ type = "shell"
 command = "~/.config/herdr/scripts/rename-workspace-to-cwd.sh"
 description = "rename workspace to cwd basename"
 
-# Use pop up for workspace selection.
 [[keys.command]]
-key = "prefix+w"
-type = "popup"
-command = "~/.config/herdr/scripts/switch-workspace.sh"
-description = "switch workspace (fzf)"
-width = "80%"
-height = "80%"
+key = "prefix+c"
+type = "shell"
+command = "herdr workspace create --cwd \"$HOME\" --focus"
+description = "new workspace in $HOME"
+
+[[keys.command]]
+key = "prefix+shift+n"
+type = "shell"
+command = "herdr workspace create --cwd \"$HOME\" --focus"
+description = "new workspace in $HOME"
 
 [ui]
 # Each workspace holds exactly one tab in this workflow; hide the now-redundant tab bar.
@@ -45,8 +50,8 @@ hide_tab_bar_when_single_tab = true
 
 show_agent_labels_on_pane_borders = false
 
-# Hide sidebar
-sidebar_collapsed_mode = "hidden"
+# Compact sidebar
+sidebar_collapsed_mode = "compact"
 
 # Share a single divider line between adjacent panes
 pane_gaps = false
