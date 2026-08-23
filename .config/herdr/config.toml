@@ -10,12 +10,22 @@ split_horizontal = "prefix+minus"
 previous_workspace = "prefix+ctrl+h"
 next_workspace = "prefix+ctrl+l"
 
+# Direct pane resize, matching tmux's `bind -r H/J/K/L resize-pane`.
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
 # New workspaces are handled by the new-workspace-home command below so they
 # open in $HOME instead of following the source workspace's cwd.
 new_workspace = ""
 
 # we don't use tabs
 new_tab = ""
+
+# select workspace by num; requires disabling tab selection
+switch_tab = ""
+switch_workspace = "prefix+1..9"
 
 detach = "prefix+d"
 
@@ -38,12 +48,6 @@ type = "shell"
 command = "herdr workspace create --cwd \"$HOME\" --focus"
 description = "new workspace in $HOME"
 
-[[keys.command]]
-key = "prefix+shift+n"
-type = "shell"
-command = "herdr workspace create --cwd \"$HOME\" --focus"
-description = "new workspace in $HOME"
-
 [ui]
 # Each workspace holds exactly one tab in this workflow; hide the now-redundant tab bar.
 hide_tab_bar_when_single_tab = true
@@ -53,8 +57,11 @@ show_agent_labels_on_pane_borders = false
 # Compact sidebar
 sidebar_collapsed_mode = "compact"
 
-# Share a single divider line between adjacent panes
+# Pane formatting
 pane_gaps = false
+pane_outer_borders = false
+pane_scrollbars = false
+
 [advanced]
 # herdr caps scrollback in bytes, not lines (~100MB) per pane.
 scrollback_limit_bytes = 100000000
