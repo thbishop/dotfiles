@@ -31,8 +31,12 @@ detach = "prefix+d"
 
 close_workspace = "prefix+&"
 
-# we have a custom workspace picker below
+# Disabled to free prefix+w for the Session Navigator below.
 workspace_picker = ""
+
+# Session Navigator on both chords; prefix+g is the default, prefix+w is the
+# freed workspace_picker chord.
+goto = ["prefix+g", "prefix+w"]
 
 # herdr's workspace-naming does not live-track cwd, so this renames the focused
 # workspace to the current directory's basename on demand.
@@ -54,7 +58,8 @@ hide_tab_bar_when_single_tab = true
 
 show_agent_labels_on_pane_borders = false
 
-# Compact sidebar
+# Start collapsed, and make collapsed mean compact rather than hidden.
+sidebar_start_collapsed = true
 sidebar_collapsed_mode = "compact"
 
 # Pane formatting
