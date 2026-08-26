@@ -56,6 +56,9 @@ description = "new workspace in $HOME"
 # Each workspace holds exactly one tab in this workflow; hide the now-redundant tab bar.
 hide_tab_bar_when_single_tab = true
 
+# Let terminal handle links
+mouse_capture = false
+
 show_agent_labels_on_pane_borders = false
 
 # Start collapsed, and make collapsed mean compact rather than hidden.
