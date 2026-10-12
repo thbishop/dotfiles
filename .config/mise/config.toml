@@ -1,0 +1,18 @@
+# Global mise config.
+
+[tools]
+neovim = "0.12.6"
+uv = "0.12.24"
+python = "3.14.8"
+node = "24.21.0"
+starship = "1.26.0"
+fzf = "0.74.4"
+tree-sitter = "0.27.1"
+go = "1.27.2"
+gh = "2.102.0"
+
+[settings]
+# Activate a uv-managed .venv when you cd into a project with uv.lock.
+# "source"         = activate existing .venv only (run `uv sync` yourself if missing)
+# "create|source"  = create .venv with uv if missing, then activate
+python.uv_venv_auto = "create|source"

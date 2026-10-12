@@ -11,7 +11,6 @@ export HISTIGNORE="ls:history:x:exit:clear:"
 export HISTSIZE=1500000
 shopt -s histappend
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
 alias brewup="brew update && brew outdated"
@@ -39,8 +38,10 @@ function cl-bump-patch() {
   latest_version=$(cl-latest)
 }
 
-# asdf
-PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-. <(asdf completion bash)
+# mise (replaces asdf)
+eval "$(mise activate bash)"
+
+# fzf keybindings + completion (mise-managed binary)
+eval "$(fzf --bash)"
 
 eval "$(starship init bash)"
