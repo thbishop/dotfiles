@@ -10,6 +10,7 @@ fzf = "0.74.4"
 tree-sitter = "0.27.1"
 go = "1.27.2"
 gh = "2.102.0"
+awscli = { version = "2.37.13", symlink_bins = "true" }
 
 [settings]
 # Activate a uv-managed .venv when you cd into a project with uv.lock.
