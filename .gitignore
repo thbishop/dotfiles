@@ -19,10 +19,12 @@
 .claude.json
 .claude/
 .codeium/
+.codex/
 .config/gh/hosts.yml
 .config/github-copilot/
 .config/herdr/*.log
 .config/herdr/.plugins.lock
+.config/herdr/herdr.sock.agent
 .config/herdr/session*
 .config/iterm2/
 .cups/
@@ -62,5 +64,6 @@ Sites
 Thumbs.db
 data
 dev
+go/
 tmp
 tmux*.log
